@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaheryar Butt — I design it. I build it.</title>
+<meta name="description" content="Senior Product Designer × Webflow & Framer Developer. 9+ years, 30+ projects.">
+<style>
+  :root {
+    --bg: #08080a; --surface: #101014; --line: #222228;
+    --text: #f4f4f5; --muted: #a1a1aa; --faint: #5b5b64;
+    --accent: #d7fd44; --accent2: #7cb342;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--accent); color: #08080a; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(8,8,10,.78); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 800; letter-spacing: -0.5px; font-size: 17px; text-decoration: none; color: var(--text); }
+  .logo em { font-style: normal; color: var(--accent); }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a.link { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+  nav a.link:hover { color: var(--text); }
+  .cta { background: var(--accent); color: #08080a !important; font-weight: 700; padding: 9px 20px; border-radius: 999px; font-size: 14px; text-decoration: none; transition: transform .2s; display: inline-block; }
+  .cta:hover { transform: scale(1.05); }
+
+  header.hero { position: relative; padding: 190px 0 80px; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(110px); opacity: .5; animation: drift 14s ease-in-out infinite alternate; z-index: 0; }
+  .b1 { width: 520px; height: 520px; background: #3d5a1e; top: -140px; left: -120px; }
+  .b2 { width: 460px; height: 460px; background: #1e3a5a; bottom: -160px; right: -100px; animation-delay: -6s; }
+  .b3 { width: 300px; height: 300px; background: #4a2a6b; top: 30%; left: 55%; animation-delay: -3s; opacity: .35; }
+  @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(60px, 40px) scale(1.15); } }
+
+  .kicker { color: var(--accent); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; }
+  h1 { font-size: clamp(52px, 9vw, 108px); line-height: 1.0; letter-spacing: -4px; font-weight: 800; margin-bottom: 10px; }
+  h1 .stroke { color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
+  .roles { font-size: clamp(18px, 2.6vw, 26px); color: var(--muted); margin-bottom: 30px; min-height: 44px; font-weight: 600; }
+  .roles #rotator { color: var(--accent); border-right: 3px solid var(--accent); padding-right: 6px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { border-color: transparent; } }
+  .lede { font-size: 18px; color: var(--muted); max-width: 640px; margin-bottom: 42px; }
+  .lede strong { color: var(--text); }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 80px; }
+  .btn { display: inline-block; padding: 15px 32px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+  .btn-solid { background: var(--accent); color: #08080a; }
+  .btn-solid:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(215,253,68,.25); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 20px 0; background: var(--surface); }
+  .marquee-track { display: inline-block; animation: scroll 26s linear infinite; }
+  .marquee span { font-size: 20px; font-weight: 800; letter-spacing: 2px; color: var(--text); margin: 0 26px; text-transform: uppercase; }
+  .marquee span i { font-style: normal; color: var(--accent); margin-right: 52px; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); padding: 70px 0 10px; }
+  .stat { padding: 0 10px 0 0; }
+  .stat b { display: block; font-size: clamp(38px, 5vw, 56px); letter-spacing: -2px; }
+  .stat b i { font-style: normal; color: var(--accent); }
+  .stat span { font-size: 13px; color: var(--faint); text-transform: uppercase; letter-spacing: 1.5px; }
+
+  section { padding: 110px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 14px; }
+  .num { color: var(--accent); font-weight: 700; font-size: 15px; }
+  .sec-label { color: var(--faint); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; }
+  h2 { font-size: clamp(34px, 5vw, 56px); letter-spacing: -2.5px; font-weight: 800; margin-bottom: 14px; }
+  .sec-sub { color: var(--muted); max-width: 620px; margin-bottom: 52px; font-size: 17px; }
+
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .work-card { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; text-decoration: none; transition: border-color .25s, transform .25s; position: relative; overflow: hidden; }
+  .work-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(215,253,68,.08), transparent 45%); opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .work-card:hover::after { opacity: 1; }
+  .work-card:hover { border-color: #3a3a42; transform: translateY(-5px); }
+  .work-card .tag { display: inline-block; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); border: 1px solid #2c3a1a; background: #141b0c; padding: 5px 12px; border-radius: 999px; margin-bottom: 20px; }
+  .work-card b { display: block; color: var(--text); font-size: 23px; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .work-card p { color: var(--muted); font-size: 15px; }
+  .work-card .built { display: block; margin-top: 14px; font-size: 13px; color: var(--faint); }
+  .work-card .built em { font-style: normal; color: var(--accent2); }
+
+  .dxb { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .dxb-card { border-radius: 22px; padding: 44px 36px; position: relative; overflow: hidden; transition: transform .25s; }
+  .dxb-card:hover { transform: translateY(-5px); }
+  .dxb-design { background: linear-gradient(135deg, #1a2b12, #0e150a); border: 1px solid #2c3a1a; }
+  .dxb-build { background: linear-gradient(135deg, #101d33, #0a1220); border: 1px solid #1e3a5f; }
+  .dxb-card .big { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; display: block; }
+  .dxb-design .big { color: var(--accent); }
+  .dxb-build .big { color: #7db4fd; }
+  .dxb-card h3 { font-size: 30px; letter-spacing: -1px; margin-bottom: 14px; }
+  .dxb-card p { color: var(--muted); font-size: 16px; margin-bottom: 22px; }
+  .dxb-card ul { list-style: none; }
+  .dxb-card li { color: var(--text); font-size: 15px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .dxb-card li:last-child { border: none; }
+  .dxb-card li::before { content: '✦ '; color: var(--accent); }
+  .dxb-build li::before { color: #7db4fd; }
+
+  .play { background: var(--surface); border: 1px solid var(--line); }
+  .play-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .toy { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 36px 28px; text-align: center; min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+  .toy b { font-size: 16px; }
+  .toy small { color: var(--faint); font-size: 13px; }
+  .mag-btn { background: var(--accent); color: #08080a; font-weight: 800; border: none; padding: 16px 38px; border-radius: 999px; font-size: 16px; cursor: pointer; transition: transform .15s ease-out; will-change: transform; }
+  .theme-dots { display: flex; gap: 12px; }
+  .dot { width: 44px; height: 44px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; transition: transform .2s, border-color .2s; }
+  .dot:hover { transform: scale(1.15); }
+  .dot.active { border-color: #fff; }
+  .tilt-card { width: 200px; height: 130px; border-radius: 16px; background: linear-gradient(135deg, var(--accent), #7cb342); display: flex; align-items: center; justify-content: center; color: #08080a; font-weight: 800; font-size: 15px; transition: transform .15s ease-out; transform-style: preserve-3d; cursor: pointer; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .about-grid p { color: var(--muted); font-size: 17px; margin-bottom: 18px; }
+  .about-grid p strong { color: var(--text); }
+  .jobs { list-style: none; }
+  .jobs li { padding: 20px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .jobs b { font-size: 17px; }
+  .jobs span { color: var(--faint); font-size: 14px; white-space: nowrap; }
+
+  .contact-box { background: linear-gradient(135deg, #141b0c, #0c0f08); border: 1px solid #2c3a1a; border-radius: 26px; padding: 70px 48px; text-align: center; position: relative; overflow: hidden; }
+  .contact-box::before { content: ''; position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(215,253,68,.12), transparent 70%); top: -150px; left: 50%; transform: translateX(-50%); }
+  .contact-box h2 { margin-bottom: 14px; position: relative; }
+  .contact-box p { color: var(--muted); margin-bottom: 36px; font-size: 17px; position: relative; }
+  .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+  footer { border-top: 1px solid var(--line); padding: 34px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; }
+  footer p { color: var(--faint); font-size: 14px; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 760px) {
+    .work-grid, .dxb, .about-grid, .play-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 20px; }
+    nav ul { display: none; }
+    header.hero { padding: 140px 0 70px; }
+    .contact-box { padding: 48px 24px; }
+    .jobs li { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">shaheryar<em>.</em>design</a>
+    <ul>
+      <li><a class="link" href="#work">Work</a></li>
+      <li><a class="link" href="#build">Design × Build</a></li>
+      <li><a class="link" href="#about">About</a></li>
+    </ul>
+    <a class="cta" href="#contact">Let's talk</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <div class="kicker">Shaheryar Butt · Pakistan → Worldwide (remote)</div>
+    <h1>I design it.<br><span class="stroke">I build it.</span></h1>
+    <div class="roles">— <span id="rotator">Senior Product Designer</span></div>
+    <p class="lede">Nine years turning complex problems into products people love — then shipping them live in <strong>Webflow</strong>, <strong>Framer</strong>, and <strong>WordPress</strong>. Designer and developer in one hire. <strong>30+ projects</strong> shipped.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/shaheryar-butt/">LinkedIn</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b><span class="count" data-n="9">0</span><i>+</i></b><span>Years experience</span></div>
+      <div class="stat"><b><span class="count" data-n="30">0</span><i>+</i></b><span>Projects shipped</span></div>
+      <div class="stat"><b><span class="count" data-n="80">0</span><i>+</i></b><span>Component design system</span></div>
+      <div class="stat"><b><span class="count" data-n="22">0</span><i>%</i></b><span>Onboarding lift @ Walky</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="marquee-track" id="mtrack"></div></div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">01</span><span class="sec-label">Selected work</span></div>
+    <h2 class="reveal">Designed. Built. Live.</h2>
+    <p class="sec-sub reveal">Not mockups on a shelf — real products, real sites, real emails. Most of it live on the internet right now.</p>
+    <div class="work-grid">
+      <a class="work-card reveal" href="https://www.figma.com/design/4OzS8KcSeOLgXVbGMjCVZ1/Dashboard-Portfolio--Client-Sharing-?node-id=1-15548&t=YUB9pL13pk5InsaD-1">
+        <span class="tag">SaaS · Figma</span><b>Dashboard portfolio</b><p>Analytics platforms, LMS &amp; admin products — with a full design-system section.</p><span class="built">Designed in <em>Figma</em></span>
+      </a>
+      <a class="work-card reveal" href="https://www.figma.com/design/W5M1ryV6od6nx0ep3umDiN/Mobile-Application--Client-Sharing-?node-id=4-160&t=I3PylxLjaxAsW7GX-1">
+        <span class="tag">Mobile · Figma</span><b>Mobile app portfolio</b><p>iOS &amp; Android flows — onboarding, core journeys, edge cases.</p><span class="built">Designed in <em>Figma</em></span>
+      </a>
+      <a class="work-card reveal" href="https://www.figma.com/design/9LfCw6faDaXvFQfWSFkM2C/Website-Portfolio--Client-Sharing-?node-id=159-12849&t=u2nBTJ3IEOLMJnQh-1">
+        <span class="tag">Web · Figma</span><b>Website portfolio</b><p>Landing pages &amp; marketing sites built to convert.</p><span class="built">Designed in <em>Figma</em> → built in <em>Webflow / Framer</em></span>
+      </a>
+      <a class="work-card reveal" href="https://shaheryarbuttux.github.io/html-email-templates/">
+        <span class="tag">Email · HTML/CSS</span><b>10 emails, hand-coded</b><p>Responsive HTML emails — real client recreations, genuine photography, concepts.</p><span class="built">Hand-coded <em>HTML/CSS</em> · <em>browse the gallery</em></span>
+      </a>
+      <a class="work-card reveal" href="https://www.behance.net/sherybutt">
+        <span class="tag">Brand · Behance</span><b>Behance archive</b><p>Identities, campaigns &amp; 200+ shipped marketing assets.</p><span class="built">12 projects</span>
+      </a>
+      <a class="work-card reveal" href="https://github.com/shaheryarbuttUX">
+        <span class="tag">Code · GitHub</span><b>GitHub</b><p>Design tokens, email builds — the code side of my design work.</p><span class="built"><em>github.com/shaheryarbuttUX</em></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="build" style="padding-top: 40px;">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">02</span><span class="sec-label">Design × Build</span></div>
+    <h2 class="reveal">Two crafts. One hire.</h2>
+    <p class="sec-sub reveal">Most designers hand off. Most developers don't design. I do both — so nothing gets lost between the Figma file and the finished thing.</p>
+    <div class="dxb">
+      <div class="dxb-card dxb-design reveal">
+        <span class="big">✦ Design</span>
+        <h3>Thinks in user flows</h3>
+        <p>Research-backed product design with systems thinking baked in.</p>
+        <ul>
+          <li>UX research, flows &amp; wireframes</li>
+          <li>High-fidelity UI &amp; prototyping</li>
+          <li>Design systems (80+ components)</li>
+          <li>WCAG 2.1 AA accessibility</li>
+        </ul>
+      </div>
+      <div class="dxb-card dxb-build reveal">
+        <span class="big">✦ Build</span>
+        <h3>Ships real websites</h3>
+        <p>Production builds — responsive, animated, and CMS-driven.</p>
+        <ul>
+          <li>Webflow development</li>
+          <li>Framer sites &amp; components</li>
+          <li>WordPress / Shopify builds</li>
+          <li>Hand-coded HTML/CSS &amp; emails</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="play">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">03</span><span class="sec-label">Playground</span></div>
+    <h2 class="reveal">Don't take my word for it.</h2>
+    <p class="sec-sub reveal">This page is hand-coded. Go ahead — poke it. That's the whole point.</p>
+    <div class="play-grid">
+      <div class="toy reveal">
+        <button class="mag-btn" id="magnet">Catch me</button>
+        <b>Magnetic button</b><small>It dodges your cursor. Micro-interactions are my love language.</small>
+      </div>
+      <div class="toy reveal">
+        <div class="theme-dots">
+          <div class="dot active" data-c="#d7fd44" style="background:#d7fd44"></div>
+          <div class="dot" data-c="#7db4fd" style="background:#7db4fd"></div>
+          <div class="dot" data-c="#ff7ab8" style="background:#ff7ab8"></div>
+          <div class="dot" data-c="#ffb020" style="background:#ffb020"></div>
+        </div>
+        <b>Live theme switcher</b><small>Pick a color — the whole page re-skins. That's design tokens in action.</small>
+      </div>
+      <div class="toy reveal">
+        <div class="tilt-card" id="tilt">Hover &amp; move</div>
+        <b>3D tilt card</b><small>Depth, light, motion — the details users feel but never notice.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">04</span><span class="sec-label">About</span></div>
+    <h2 class="reveal">Nine years, zero hand-offs.</h2>
+    <div class="about-grid" style="margin-top: 40px;">
+      <div class="reveal">
+        <p>Most recently <strong>Senior Product Designer at Walky (EdTech)</strong> — led product design across onboarding and an <strong>80+ component design system</strong>, lifting activation <strong>22%</strong>.</p>
+        <p>Before that: agency life at <strong>Media Depot</strong>, software-house pace at <strong>Hybrid Mediaworks</strong>, and my own studio <strong>Ovatic Solution</strong> since 2017.</p>
+        <p>Based in Pakistan, working <strong>remotely worldwide</strong> — I flex to my team's hours.</p>
+      </div>
+      <ul class="jobs reveal">
+        <li><b>Senior Product Designer</b><span>Walky (EdTech) · 2025–26</span></li>
+        <li><b>Senior UI/UX Designer</b><span>Media Depot · 2023–25</span></li>
+        <li><b>UI/UX Designer</b><span>Hybrid Mediaworks · 2021–22</span></li>
+        <li><b>Founder &amp; Designer</b><span>Ovatic Solution · 2017–20</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div class="sec-head" style="justify-content: center;"><span class="num">05</span><span class="sec-label">Contact</span></div>
+      <h2>Let's build something.</h2>
+      <p>Open to remote product design roles, Webflow/Framer builds, and freelance projects. I reply within 24 hours.</p>
+      <div class="contact-links">
+        <a class="btn btn-solid" href="mailto:shaheryarbutt47@gmail.com">shaheryarbutt47@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/shaheryar-butt/">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/shaheryarbuttUX">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Shaheryar Butt</p>
+    <p>Designed &amp; hand-coded · No templates were harmed</p>
+  </div>
+</footer>
+
+<script>
+  const roles = ['Senior Product Designer','Webflow Developer','Framer Developer','UI/UX Designer','WordPress Developer'];
+  let ri = 0; const rot = document.getElementById('rotator');
+  setInterval(() => { ri = (ri + 1) % roles.length; rot.style.opacity = 0;
+    setTimeout(() => { rot.textContent = roles[ri]; rot.style.opacity = 1; }, 220);
+  }, 2400);
+  rot.style.transition = 'opacity .22s';
+
+  const skills = ['Product Design','Webflow','Framer','UI/UX','WordPress','Design Systems','HTML/CSS','Shopify'];
+  const half = skills.map(s => `<span>${s}<i>✦</i></span>`).join('');
+  document.getElementById('mtrack').innerHTML = half + half;
+
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, n = +el.dataset.n, t0 = performance.now();
+    (function tick(t) { const p = Math.min((t - t0) / 1400, 1);
+      el.textContent = Math.round(n * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick); })(t0);
+    cio.unobserve(el);
+  }), { threshold: .5 });
+  document.querySelectorAll('.count').forEach(el => cio.observe(el));
+
+  const rio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => rio.observe(el));
+
+  document.querySelectorAll('.work-card').forEach(c => c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  const mag = document.getElementById('magnet');
+  mag.parentElement.addEventListener('mousemove', e => {
+    const r = mag.getBoundingClientRect();
+    const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+    const dist = Math.hypot(dx, dy);
+    if (dist < 140 && dist > 0) {
+      const f = (1 - dist / 140) * 46;
+      mag.style.transform = `translate(${-dx / dist * f}px, ${-dy / dist * f}px)`;
+    }
+  });
+  mag.parentElement.addEventListener('mouseleave', () => mag.style.transform = '');
+  mag.addEventListener('click', () => { mag.textContent = 'Gotcha. Now hire me.'; setTimeout(() => mag.textContent = 'Catch me', 2200); });
+
+  document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => {
+    document.querySelectorAll('.dot').forEach(x => x.classList.remove('active'));
+    d.classList.add('active');
+    document.documentElement.style.setProperty('--accent', d.dataset.c);
+  }));
+
+  const tilt = document.getElementById('tilt');
+  tilt.parentElement.addEventListener('mousemove', e => {
+    const r = tilt.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    tilt.style.transform = `perspective(600px) rotateY(${x * 24}deg) rotateX(${-y * 24}deg) scale(1.04)`;
+  });
+  tilt.parentElement.addEventListener('mouseleave', () => tilt.style.transform = '');
+</script>
+</body>
+</html>
